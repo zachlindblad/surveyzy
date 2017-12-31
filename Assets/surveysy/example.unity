@@ -258,10 +258,10 @@ RectTransform:
   m_Father: {fileID: 1256083709}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 248.75995, y: -32.3136}
+  m_SizeDelta: {x: 100, y: 64.6272}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &88394788
 MonoBehaviour:
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1540479394}
+      - m_Target: {fileID: 0}
         m_MethodName: advanceQuestion
         m_Mode: 1
         m_Arguments:
@@ -2661,6 +2661,7 @@ GameObject:
   - component: {fileID: 1352550568}
   - component: {fileID: 1352550567}
   - component: {fileID: 1352550566}
+  - component: {fileID: 1352550570}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2744,6 +2745,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1352550570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1352550565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 484f92ef349d21b49b03e7321f13e978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  googleSurveyUrl: https://script.google.com/macros/s/AKfycbw1DkRRT3nOuSx0XGuZYA7XKPllt4Pf7Ym6RnGZKDjTHeanNhI/exec
+  displayOnReady: 1
+  submitOnComplete: 1
+  surveyTitle: {fileID: 2041085296}
+  questionParent: {fileID: 735350472}
+  surveyPanelRoot: {fileID: 1540479390}
+  questionTemplate: {fileID: 1531815369}
+  onQuestion: -1
+  isReady: 0
 --- !u!1 &1444459848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,14 +2955,13 @@ GameObject:
   - component: {fileID: 1540479391}
   - component: {fileID: 1540479393}
   - component: {fileID: 1540479392}
-  - component: {fileID: 1540479394}
   m_Layer: 5
   m_Name: SurveyPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1540479391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2996,25 +3016,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1540479390}
---- !u!114 &1540479394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1540479390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 484f92ef349d21b49b03e7321f13e978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  googleSurveyUrl: https://script.google.com/macros/s/AKfycbw1DkRRT3nOuSx0XGuZYA7XKPllt4Pf7Ym6RnGZKDjTHeanNhI/exec
-  displayOnReady: 1
-  submitOnComplete: 1
-  surveyTitle: {fileID: 2041085296}
-  questionParent: {fileID: 735350472}
-  questionTemplate: {fileID: 1531815369}
-  onQuestion: -1
-  isReady: 0
 --- !u!1 &1612984877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,7 +3850,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.9}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 36.72, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1872692382
 MonoBehaviour:
@@ -3903,7 +3904,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1540479394}
+      - m_Target: {fileID: 0}
         m_MethodName: closeSurvey
         m_Mode: 1
         m_Arguments:

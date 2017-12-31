@@ -14,6 +14,7 @@ namespace surveysy
 
         public Text surveyTitle;
         public Transform questionParent;
+        public GameObject surveyPanelRoot;
 
         public GameObject questionTemplate;
 
@@ -22,25 +23,31 @@ namespace surveysy
         public bool isReady = false;
 
         private List<SurveyQuestionPanel> questions = new List<SurveyQuestionPanel>();
+
         public void Awake()
         {
+            print("in awake");
             if (!string.IsNullOrEmpty(googleSurveyUrl))
             {
                 StartCoroutine(GoogleFormsLoader.loadFromUrl(googleSurveyUrl, onSurveyLoaded));
             }
-
-
         }
 
         public void onSurveyLoaded(string error, SurveyDefinition result)
         {
             loadSurveyDefinition(result);
-            advanceQuestion();
+            
             if (displayOnReady)
             {
-                gameObject.SetActive(true);
+                openSurvey();
             }
             isReady = true;
+        }
+
+        public void openSurvey()
+        {
+            surveyPanelRoot.SetActive(true);
+            advanceQuestion();
         }
 
         public void loadSurveyDefinition(SurveyDefinition def)
@@ -49,7 +56,7 @@ namespace surveysy
             questions = new List<SurveyQuestionPanel>();
             for(int i = 0; i < def.questions.Length; i++)
             {
-                 GameObject nqPanel = Instantiate(questionTemplate);
+                GameObject nqPanel = Instantiate(questionTemplate);
                 questions.Add(nqPanel.GetComponent<SurveyQuestionPanel>());
                 questions[questions.Count-1].load(def.questions[i]);
                 nqPanel.transform.SetParent(questionParent,false);
@@ -82,7 +89,7 @@ namespace surveysy
 
         public void closeSurvey()
         {
-            gameObject.SetActive(false);
+            surveyPanelRoot.SetActive(false);
             onQuestion = -1;
             foreach(SurveyQuestionPanel panel in questions)
             {
