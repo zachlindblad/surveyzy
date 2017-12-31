@@ -15,6 +15,7 @@ namespace surveysy
         public Text surveyTitle;
         public Transform questionParent;
         public GameObject surveyPanelRoot;
+        public Button submitButton;
 
         public GameObject questionTemplate;
 
@@ -73,9 +74,11 @@ namespace surveysy
             if(onQuestion<questions.Count)
             {
                 questions[onQuestion].fadeIn();
+                submitButton.interactable = true;
             }
             else
             {
+                submitButton.interactable = false;
                 if(submitOnComplete)
                 {
                     submitSurveyResponse();
