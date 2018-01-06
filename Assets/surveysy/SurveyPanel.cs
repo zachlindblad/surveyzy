@@ -8,8 +8,11 @@ namespace surveysy
 {
     public class SurveyPanel : MonoBehaviour
     {
+        //Url to hit for GoogleFormsLoader
         public string googleSurveyUrl;
+        //if we should show the 'survey panel root' once survey is loaded
         public bool displayOnReady;
+        //if we should send survey response on completed survey
         public bool submitOnComplete;
 
         public Text surveyTitle;

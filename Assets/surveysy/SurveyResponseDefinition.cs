@@ -2,8 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[Serializable]
-public class SurveyResponseDefinition {
-    public List<SurveyQuestionResponseDefinition> itemResponses = new List<SurveyQuestionResponseDefinition>();
+namespace surveysy
+{
+    [Serializable]
+    public class SurveyResponseDefinition
+    {
+        public List<SurveyQuestionResponseDefinition> itemResponses = new List<SurveyQuestionResponseDefinition>();
+    }
 }

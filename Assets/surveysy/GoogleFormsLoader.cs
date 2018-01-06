@@ -7,7 +7,12 @@ namespace surveysy
     [Serializable]
     public class GoogleFormsLoader {
 
-        //callback returns error string(if exists, and result survey
+        /// <summary>
+        /// will load google form survey info (questions, title, etc.)
+        /// </summary>
+        /// <param name="url">Url to load from</param>
+        /// <param name="callback">callback returns error string(if exists, and result survey)</param>
+        /// <returns></returns>
         public static IEnumerator loadFromUrl(string url, Action<string, SurveyDefinition> callback)
         {
             WWW fetchForm = new WWW(url);
@@ -16,6 +21,13 @@ namespace surveysy
             callback.Invoke(null, result);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="url">Url to send question responses to</param>
+        /// <param name="result">JSON string, produced by SurveyResponseDefinition</param>
+        /// <param name="callback">callback returns error string(if exists)</param>
+        /// <returns></returns>
         public static IEnumerator SendResultForm(string url, string result, Action<string> callback)
         {
             Dictionary<string, string> headers = new Dictionary<string, string>();
